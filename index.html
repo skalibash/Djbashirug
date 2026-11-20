@@ -388,43 +388,111 @@ button {
   font-family: inherit;
 }
 
-/* SOCIAL */
-.connect-buttons {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 15px;
-  max-width: 900px;
-  margin: auto;
+/* PROFESSIONAL SOCIAL MEDIA */
+.social-section {
+  background:
+    radial-gradient(ellipse at top, #102b50 0%, #050914 75%);
 }
 
-.connect-btn {
-  display: inline-block;
-  min-width: 220px;
-  padding: 15px 20px;
-  border-radius: 12px;
+.social-container {
+  max-width: 1000px;
+  margin: 35px auto 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.social-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  min-height: 190px;
+  padding: 25px 18px;
+  border-radius: 18px;
+  background: linear-gradient(145deg, #102443, #071326);
+  border: 1px solid #15518c;
   color: white;
   text-decoration: none;
-  font-weight: bold;
+  overflow: hidden;
+  transition: transform .3s, box-shadow .3s, border-color .3s;
+}
+
+.social-card::before {
+  content: "";
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  top: -90px;
+  right: -65px;
+  background: rgba(0, 213, 255, .12);
+  border-radius: 50%;
   transition: .3s;
 }
 
-.connect-btn:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 0 22px #008cff;
+.social-card:hover {
+  transform: translateY(-8px);
+  border-color: var(--cyan);
+  box-shadow: 0 0 25px rgba(0, 140, 255, .35);
 }
 
-.tiktok {
+.social-card:hover::before {
+  transform: scale(2);
+}
+
+.social-icon {
+  width: 58px;
+  height: 58px;
+  display: grid;
+  place-items: center;
+  border-radius: 16px;
+  font-size: 29px;
+  font-weight: bold;
+  position: relative;
+  z-index: 1;
+}
+
+.social-card strong {
+  font-size: 17px;
+  letter-spacing: 1px;
+}
+
+.social-card small {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.tiktok-card .social-icon {
   background: #111;
+  color: #00f2ea;
+  text-shadow: 2px 2px #ff0050;
   border: 1px solid #00f2ea;
 }
 
-.youtube {
-  background: #d90000;
+.youtube-card .social-icon {
+  background: #e60000;
+  color: white;
 }
 
-.whatsapp {
+.whatsapp-card .social-icon {
   background: #087f42;
+  color: white;
+}
+
+.social-handle {
+  color: var(--cyan);
+  font-size: 12px;
+  font-weight: bold;
+  word-break: break-word;
+}
+
+.social-note {
+  max-width: 650px;
+  margin: 30px auto 0;
+  color: var(--muted);
+  font-size: 13px;
 }
 
 /* FOOTER */
@@ -476,8 +544,13 @@ footer strong {
     padding: 23px 16px;
   }
 
-  .connect-btn {
-    width: 100%;
+  .social-container {
+    grid-template-columns: 1fr;
+    max-width: 380px;
+  }
+
+  .social-card {
+    min-height: 165px;
   }
 }
 
@@ -719,42 +792,78 @@ footer strong {
 
 </section>
 
-<!-- CONTACT -->
-<section id="contact">
+<!-- PROFESSIONAL SOCIAL MEDIA -->
+<section id="contact" class="social-section">
 
   <h2 class="section-heading">LET'S CONNECT</h2>
 
   <p class="section-subtitle">
-    Follow DJ BASHIRUG on social media
+    Follow DJ BASHIRUG, enjoy the content
+    and stay connected!
   </p>
 
-  <div class="connect-buttons">
+  <div class="social-container">
 
+    <!-- TIKTOK -->
     <a
       href="https://www.tiktok.com/@www.dj.bashirug"
-      class="connect-btn tiktok"
+      class="social-card tiktok-card"
       target="_blank"
-      rel="noopener noreferrer">
-      ♪ FOLLOW ME ON TIKTOK
+      rel="noopener noreferrer"
+      aria-label="Follow DJ BASHIRUG on TikTok">
+
+      <div class="social-icon">♪</div>
+
+      <strong>TIKTOK</strong>
+
+      <span class="social-handle">@www.dj.bashirug</span>
+
+      <small>FOLLOW FOR MORE DJ CONTENT</small>
+
     </a>
 
+    <!-- YOUTUBE -->
     <a
       href="https://youtube.com/@hectorhabib"
-      class="connect-btn youtube"
+      class="social-card youtube-card"
       target="_blank"
-      rel="noopener noreferrer">
-      ▶ SUBSCRIBE ON YOUTUBE
+      rel="noopener noreferrer"
+      aria-label="Subscribe to DJ BASHIRUG on YouTube">
+
+      <div class="social-icon">▶</div>
+
+      <strong>YOUTUBE</strong>
+
+      <span class="social-handle">@hectorhabib</span>
+
+      <small>WATCH AND SUBSCRIBE</small>
+
     </a>
 
+    <!-- WHATSAPP -->
     <a
       href="https://wa.me/256769484802"
-      class="connect-btn whatsapp"
+      class="social-card whatsapp-card"
       target="_blank"
-      rel="noopener noreferrer">
-      ☎ CONNECT ON WHATSAPP
+      rel="noopener noreferrer"
+      aria-label="Contact DJ BASHIRUG on WhatsApp">
+
+      <div class="social-icon">☎</div>
+
+      <strong>WHATSAPP</strong>
+
+      <span class="social-handle">+256 769 484 802</span>
+
+      <small>CHAT AND MAKE BOOKINGS</small>
+
     </a>
 
   </div>
+
+  <p class="social-note">
+    Music • Entertainment • Good Vibes.
+    Connect with DJ BASHIRUG and never miss a mix!
+  </p>
 
 </section>
 
