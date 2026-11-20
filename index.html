@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,6 +15,7 @@
   --panel: #0b1830;
   --blue: #168dff;
   --cyan: #00d5ff;
+  --purple: #8b36ff;
   --text: #ffffff;
   --muted: #b8c9e6;
 }
@@ -36,6 +36,53 @@ body {
   color: var(--text);
   font-family: Arial, sans-serif;
   line-height: 1.7;
+  isolation: isolate;
+  overflow-x: hidden;
+}
+
+/* =================================
+   ANIMATED NEON MUSIC BACKGROUND
+================================= */
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: -50%;
+  z-index: -1;
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      circle at 25% 30%,
+      rgba(0, 140, 255, .22),
+      transparent 35%
+    ),
+    radial-gradient(
+      circle at 75% 65%,
+      rgba(139, 54, 255, .18),
+      transparent 35%
+    ),
+    radial-gradient(
+      circle at 50% 90%,
+      rgba(0, 213, 255, .12),
+      transparent 30%
+    );
+
+  animation: neonMove 12s ease-in-out infinite alternate;
+}
+
+@keyframes neonMove {
+  0% {
+    transform: translate(-5%, -3%) scale(1);
+  }
+
+  50% {
+    transform: translate(4%, 5%) scale(1.12);
+  }
+
+  100% {
+    transform: translate(-3%, 2%) scale(1.05);
+  }
 }
 
 a {
@@ -43,10 +90,11 @@ a {
 }
 
 /* HEADER */
+
 header {
   text-align: center;
   padding: 25px 12px;
-  background: #020611;
+  background: rgba(2, 6, 17, .94);
   border-bottom: 1px solid var(--blue);
 }
 
@@ -64,6 +112,7 @@ header p {
 }
 
 /* NAVIGATION */
+
 nav {
   position: sticky;
   top: 0;
@@ -73,7 +122,7 @@ nav {
   flex-wrap: wrap;
   gap: 8px;
   padding: 12px 8px;
-  background: rgba(3, 12, 29, 0.96);
+  background: rgba(3, 12, 29, .96);
   border-bottom: 1px solid #123e72;
   backdrop-filter: blur(12px);
 }
@@ -94,10 +143,19 @@ nav a:hover {
 }
 
 /* MOVING BANNER */
+
 .banner {
   overflow: hidden;
   white-space: nowrap;
-  background: linear-gradient(90deg, #0055b8, #008cff, #0055b8);
+  background: linear-gradient(
+    90deg,
+    #0055b8,
+    #008cff,
+    #7136d9,
+    #0055b8
+  );
+  background-size: 300% 100%;
+  animation: bannerGlow 8s linear infinite;
   padding: 10px;
   font-size: 13px;
   font-weight: bold;
@@ -114,8 +172,15 @@ nav a:hover {
   to { transform: translateX(-100%); }
 }
 
+@keyframes bannerGlow {
+  from { background-position: 0% 50%; }
+  to { background-position: 300% 50%; }
+}
+
 /* HERO */
+
 .hero {
+  position: relative;
   min-height: 540px;
   padding: 75px 18px;
   text-align: center;
@@ -123,12 +188,16 @@ nav a:hover {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: radial-gradient(
-    ellipse at center,
-    #123c70 0%,
-    #07162e 42%,
-    #050914 78%
-  );
+
+  background:
+    radial-gradient(
+      ellipse at 50% 45%,
+      rgba(18, 60, 112, .85),
+      rgba(7, 22, 46, .55) 48%,
+      rgba(5, 9, 20, .35) 80%
+    );
+
+  overflow: hidden;
 }
 
 .profile-frame {
@@ -136,7 +205,13 @@ nav a:hover {
   height: 210px;
   padding: 5px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #00d5ff, #087cff, #0045a0);
+  background: linear-gradient(
+    135deg,
+    #00d5ff,
+    #087cff,
+    #8b36ff,
+    #0045a0
+  );
   box-shadow: 0 0 25px #008cff, 0 0 65px #004b99;
   animation: glow 3s ease-in-out infinite alternate;
 }
@@ -150,8 +225,14 @@ nav a:hover {
 }
 
 @keyframes glow {
-  from { box-shadow: 0 0 18px #008cff; }
-  to { box-shadow: 0 0 40px #00d5ff, 0 0 75px #005eff; }
+  from {
+    box-shadow: 0 0 18px #008cff;
+  }
+  to {
+    box-shadow:
+      0 0 40px #00d5ff,
+      0 0 75px #7136ff;
+  }
 }
 
 .hero h2 {
@@ -185,6 +266,7 @@ nav a:hover {
 }
 
 /* BUTTONS */
+
 .btn {
   display: inline-block;
   padding: 13px 25px;
@@ -210,6 +292,7 @@ nav a:hover {
 }
 
 /* SECTIONS */
+
 section {
   padding: 65px 18px;
   text-align: center;
@@ -229,11 +312,16 @@ section {
 }
 
 /* PANELS */
+
 .panel {
   max-width: 780px;
   margin: 20px auto;
   padding: 30px 22px;
-  background: linear-gradient(145deg, #102443, #081326);
+  background: linear-gradient(
+    145deg,
+    rgba(16, 36, 67, .96),
+    rgba(8, 19, 38, .96)
+  );
   border: 1px solid #1267bb;
   border-radius: 18px;
   box-shadow: 0 0 22px rgba(0, 112, 255, .15);
@@ -249,6 +337,7 @@ section {
 }
 
 /* HIGHLIGHTS */
+
 .highlights {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
@@ -276,6 +365,7 @@ section {
 }
 
 /* MUSIC PLAYER */
+
 .music-panel {
   max-width: 780px;
 }
@@ -310,9 +400,17 @@ section {
   animation: sound .8s ease-in-out infinite alternate;
 }
 
-.visualizer span:nth-child(2n) { animation-delay: .2s; }
-.visualizer span:nth-child(3n) { animation-delay: .4s; }
-.visualizer span:nth-child(4n) { animation-delay: .1s; }
+.visualizer span:nth-child(2n) {
+  animation-delay: .2s;
+}
+
+.visualizer span:nth-child(3n) {
+  animation-delay: .4s;
+}
+
+.visualizer span:nth-child(4n) {
+  animation-delay: .1s;
+}
 
 @keyframes sound {
   from { height: 8px; }
@@ -343,6 +441,7 @@ audio {
 }
 
 /* PERFORMANCE VIDEO */
+
 .performance-video {
   display: block;
   width: 100%;
@@ -356,6 +455,7 @@ audio {
 }
 
 /* BOOKING FORM */
+
 form {
   margin-top: 20px;
 }
@@ -395,12 +495,13 @@ button {
   font-family: inherit;
 }
 
-/* PROFESSIONAL SOCIAL MEDIA */
+/* SOCIAL MEDIA */
+
 .social-section {
   background: radial-gradient(
     ellipse at top,
-    #102b50 0%,
-    #050914 75%
+    rgba(16, 43, 80, .75),
+    transparent 75%
   );
 }
 
@@ -482,6 +583,7 @@ button {
 }
 
 /* TIKTOK */
+
 .tiktok-card .social-icon {
   background: #111;
   color: #00f2ea;
@@ -490,18 +592,21 @@ button {
 }
 
 /* YOUTUBE */
+
 .youtube-card .social-icon {
   background: #e60000;
   color: white;
 }
 
 /* WHATSAPP */
+
 .whatsapp-card .social-icon {
   background: #087f42;
   color: white;
 }
 
 /* INSTAGRAM */
+
 .instagram-card .social-icon {
   background: linear-gradient(
     45deg,
@@ -527,10 +632,11 @@ button {
 }
 
 /* FOOTER */
+
 footer {
   padding: 30px 15px;
   text-align: center;
-  background: #020611;
+  background: rgba(2, 6, 17, .96);
   border-top: 1px solid var(--blue);
   color: #a9cfff;
 }
@@ -547,6 +653,7 @@ footer strong {
 }
 
 /* MOBILE RESPONSIVE */
+
 @media (max-width: 600px) {
   nav {
     gap: 2px;
@@ -586,6 +693,7 @@ footer strong {
 }
 
 /* REDUCED MOTION */
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -602,12 +710,14 @@ footer strong {
 <body>
 
 <!-- HEADER -->
+
 <header>
   <h1>DJ BASHIRUG</h1>
   <p>THE MIX GRANDMASTER</p>
 </header>
 
 <!-- MOVING BANNER -->
+
 <div class="banner">
   <span>
     WELCOME TO THE OFFICIAL DJ BASHIRUG WEBSITE •
@@ -617,6 +727,7 @@ footer strong {
 </div>
 
 <!-- NAVIGATION -->
+
 <nav aria-label="Main navigation">
   <a href="#home">HOME</a>
   <a href="#about">ABOUT</a>
@@ -627,6 +738,7 @@ footer strong {
 </nav>
 
 <!-- HOME -->
+
 <section class="hero" id="home">
 
   <div class="profile-frame">
@@ -651,12 +763,14 @@ footer strong {
 </section>
 
 <!-- ABOUT -->
+
 <section id="about">
 
   <h2 class="section-heading">ABOUT DJ BASHIRUG</h2>
   <p class="section-subtitle">The passion behind the music</p>
 
   <div class="panel">
+
     <h3>WELCOME TO MY WORLD</h3>
 
     <p>
@@ -669,6 +783,7 @@ footer strong {
       Explore my music, enjoy the mixes and connect
       with me for your next event.
     </p>
+
   </div>
 
   <div class="highlights">
@@ -693,6 +808,7 @@ footer strong {
 </section>
 
 <!-- MIXTAPES -->
+
 <section id="mixes">
 
   <h2 class="section-heading">MY MIXTAPES</h2>
@@ -721,6 +837,7 @@ footer strong {
       <source
         src="https://res.cloudinary.com/ptm1ejiq/video/upload/v1795093579/mix.mp3"
         type="audio/mpeg">
+
       Your browser does not support audio.
     </audio>
 
@@ -736,6 +853,7 @@ footer strong {
 </section>
 
 <!-- LIVE PERFORMANCES -->
+
 <section id="performances">
 
   <h2 class="section-heading">
@@ -770,6 +888,7 @@ footer strong {
 </section>
 
 <!-- BOOKING -->
+
 <section id="booking">
 
   <h2 class="section-heading">BOOK DJ BASHIRUG</h2>
@@ -822,6 +941,7 @@ footer strong {
 </section>
 
 <!-- SOCIAL MEDIA -->
+
 <section id="contact" class="social-section">
 
   <h2 class="section-heading">LET'S CONNECT</h2>
@@ -834,6 +954,7 @@ footer strong {
   <div class="social-container">
 
     <!-- TIKTOK -->
+
     <a
       href="https://www.tiktok.com/@www.dj.bashirug"
       class="social-card tiktok-card"
@@ -849,6 +970,7 @@ footer strong {
     </a>
 
     <!-- YOUTUBE -->
+
     <a
       href="https://youtube.com/@hectorhabib"
       class="social-card youtube-card"
@@ -864,6 +986,7 @@ footer strong {
     </a>
 
     <!-- WHATSAPP -->
+
     <a
       href="https://wa.me/256769484802"
       class="social-card whatsapp-card"
@@ -879,6 +1002,7 @@ footer strong {
     </a>
 
     <!-- INSTAGRAM -->
+
     <a
       href="https://www.instagram.com/dj_bashir256?hvrq=c3d2enp1bHgxdjN5"
       class="social-card instagram-card"
@@ -903,6 +1027,7 @@ footer strong {
 </section>
 
 <!-- FOOTER -->
+
 <footer>
 
   <p><strong>DJ BASHIRUG</strong> | THE MIX GRANDMASTER</p>
@@ -915,6 +1040,7 @@ footer strong {
 </footer>
 
 <!-- BOOKING SCRIPT -->
+
 <script>
 function sendBooking(event) {
   event.preventDefault();
