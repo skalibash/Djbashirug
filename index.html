@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -498,9 +497,7 @@ const firebaseConfig = {
 
 /* CLOUDINARY CONFIGURATION */
 const CLOUDINARY_CLOUD_NAME = "ptm1ejiq";
-
-/* REPLACE THIS WITH YOUR ACTUAL UNSIGNED UPLOAD PRESET NAME */
-const CLOUDINARY_UPLOAD_PRESET = "YOUR_UNSIGNED_UPLOAD_PRESET";
+const CLOUDINARY_UPLOAD_PRESET = "djbashirug";
 
 /* ADMIN ACCOUNT */
 const ADMIN_EMAIL = "skalibashh@gmail.com";
@@ -534,7 +531,7 @@ window.addEventListener("click", function(event) {
 
 /* AUTHENTICATION */
 onAuthStateChanged(auth, user => {
-  if (user && user.email === ADMIN_EMAIL) {
+  if (user && user.email && user.email.toLowerCase() === ADMIN_EMAIL.toLowerCase()) {
     loginPanel.style.display = "none";
     dashboardPanel.style.display = "block";
 
@@ -598,13 +595,8 @@ document.getElementById("uploadForm").addEventListener("submit", async event => 
   const status = document.getElementById("uploadStatus");
   const button = document.getElementById("uploadButton");
 
-  if (!user || user.email !== ADMIN_EMAIL) {
+  if (!user || !user.email || user.email.toLowerCase() !== ADMIN_EMAIL.toLowerCase()) {
     status.textContent = "Please log in as the administrator.";
-    return;
-  }
-
-  if (CLOUDINARY_UPLOAD_PRESET === "YOUR_UNSIGNED_UPLOAD_PRESET") {
-    status.textContent = "Please enter your actual Cloudinary unsigned upload preset name in the code.";
     return;
   }
 
@@ -631,7 +623,7 @@ document.getElementById("uploadForm").addEventListener("submit", async event => 
     image: file => file.type.startsWith("image/")
   };
 
-  if (!allowedTypes[type](file)) {
+  if (!allowedTypes[type] || !allowedTypes[type](file)) {
     status.textContent = "Please select a file matching the selected media type.";
     return;
   }
@@ -671,7 +663,6 @@ document.getElementById("uploadForm").addEventListener("submit", async event => 
     });
 
     status.textContent = "Upload successful! Your media is now published.";
-
     document.getElementById("uploadForm").reset();
 
   } catch (error) {
@@ -685,7 +676,6 @@ document.getElementById("uploadForm").addEventListener("submit", async event => 
 
 /* LOAD MEDIA FOR ADMIN AND PUBLIC WEBSITE */
 function startMediaListener() {
-  // The public website also loads media independently below.
   if (unsubscribeMedia) unsubscribeMedia();
 
   unsubscribeMedia = onSnapshot(mediaCollection, snapshot => {
