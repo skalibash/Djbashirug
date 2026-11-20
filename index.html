@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <meta name="theme-color" content="#050914">
-<meta name="description" content="Welcome to the official DJ BASHIRUG website. Listen to nonstop mixes, watch DJ performances and book DJ BASHIRUG for your events.">
+<meta name="description" content="Official DJ BASHIRUG website. Listen to nonstop mixes, watch performances and book DJ BASHIRUG for events.">
 
 <title>DJ BASHIRUG | The Mix Grandmaster</title>
 
@@ -85,7 +85,7 @@ nav a {
   font-weight: bold;
   padding: 8px 13px;
   border-radius: 20px;
-  transition: 0.3s;
+  transition: .3s;
 }
 
 nav a:hover {
@@ -93,7 +93,7 @@ nav a:hover {
   background: #102c50;
 }
 
-/* BANNER */
+/* MOVING BANNER */
 .banner {
   overflow: hidden;
   white-space: nowrap;
@@ -123,8 +123,12 @@ nav a:hover {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background:
-    radial-gradient(ellipse at center, #123c70 0%, #07162e 42%, #050914 78%);
+  background: radial-gradient(
+    ellipse at center,
+    #123c70 0%,
+    #07162e 42%,
+    #050914 78%
+  );
 }
 
 .profile-frame {
@@ -191,7 +195,7 @@ nav a:hover {
   text-decoration: none;
   font-weight: bold;
   box-shadow: 0 0 16px #006bd6;
-  transition: 0.3s;
+  transition: .3s;
 }
 
 .btn:hover {
@@ -232,7 +236,7 @@ section {
   background: linear-gradient(145deg, #102443, #081326);
   border: 1px solid #1267bb;
   border-radius: 18px;
-  box-shadow: 0 0 22px rgba(0, 112, 255, 0.15);
+  box-shadow: 0 0 22px rgba(0, 112, 255, .15);
 }
 
 .panel h3 {
@@ -271,7 +275,7 @@ section {
   font-size: 12px;
 }
 
-/* MUSIC */
+/* MUSIC PLAYER */
 .music-panel {
   max-width: 780px;
 }
@@ -303,7 +307,7 @@ section {
   height: 12px;
   border-radius: 5px;
   background: var(--cyan);
-  animation: sound 0.8s ease-in-out infinite alternate;
+  animation: sound .8s ease-in-out infinite alternate;
 }
 
 .visualizer span:nth-child(2n) { animation-delay: .2s; }
@@ -356,7 +360,8 @@ form {
   margin-top: 20px;
 }
 
-input, textarea {
+input,
+textarea {
   width: 100%;
   padding: 14px;
   margin: 9px 0;
@@ -368,12 +373,14 @@ input, textarea {
   font-family: inherit;
 }
 
-input:focus, textarea:focus {
+input:focus,
+textarea:focus {
   outline: 2px solid var(--cyan);
   border-color: var(--cyan);
 }
 
-input::placeholder, textarea::placeholder {
+input::placeholder,
+textarea::placeholder {
   color: #9bb0cf;
 }
 
@@ -390,8 +397,11 @@ button {
 
 /* PROFESSIONAL SOCIAL MEDIA */
 .social-section {
-  background:
-    radial-gradient(ellipse at top, #102b50 0%, #050914 75%);
+  background: radial-gradient(
+    ellipse at top,
+    #102b50 0%,
+    #050914 75%
+  );
 }
 
 .social-container {
@@ -464,6 +474,14 @@ button {
   font-size: 12px;
 }
 
+.social-handle {
+  color: var(--cyan);
+  font-size: 12px;
+  font-weight: bold;
+  word-break: break-word;
+}
+
+/* TIKTOK */
 .tiktok-card .social-icon {
   background: #111;
   color: #00f2ea;
@@ -471,21 +489,34 @@ button {
   border: 1px solid #00f2ea;
 }
 
+/* YOUTUBE */
 .youtube-card .social-icon {
   background: #e60000;
   color: white;
 }
 
+/* WHATSAPP */
 .whatsapp-card .social-icon {
   background: #087f42;
   color: white;
 }
 
-.social-handle {
-  color: var(--cyan);
-  font-size: 12px;
-  font-weight: bold;
-  word-break: break-word;
+/* INSTAGRAM */
+.instagram-card .social-icon {
+  background: linear-gradient(
+    45deg,
+    #feda75,
+    #fa7e1e,
+    #d62976,
+    #962fbf,
+    #4f5bd5
+  );
+  color: white;
+}
+
+.instagram-card:hover {
+  border-color: #d62976;
+  box-shadow: 0 0 25px rgba(214, 41, 118, .45);
 }
 
 .social-note {
@@ -515,7 +546,7 @@ footer strong {
   text-decoration: none;
 }
 
-/* MOBILE */
+/* MOBILE RESPONSIVE */
 @media (max-width: 600px) {
   nav {
     gap: 2px;
@@ -556,11 +587,13 @@ footer strong {
 
 /* REDUCED MOTION */
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation-duration: 0.01ms !important;
+  *,
+  *::before,
+  *::after {
+    animation-duration: .01ms !important;
     animation-iteration-count: 1 !important;
     scroll-behavior: auto !important;
-    transition-duration: 0.01ms !important;
+    transition-duration: .01ms !important;
   }
 }
 </style>
@@ -688,7 +721,6 @@ footer strong {
       <source
         src="https://res.cloudinary.com/ptm1ejiq/video/upload/v1795093579/mix.mp3"
         type="audio/mpeg">
-
       Your browser does not support audio.
     </audio>
 
@@ -696,9 +728,7 @@ footer strong {
       href="https://res.cloudinary.com/ptm1ejiq/video/upload/v1795093579/mix.mp3"
       download="DJ-BASHIRUG-MIX.mp3"
       class="download-btn">
-
       ⬇ DOWNLOAD MY MIX
-
     </a>
 
   </div>
@@ -733,7 +763,6 @@ footer strong {
         type="video/mp4">
 
       Your browser does not support video playback.
-
     </video>
 
   </div>
@@ -792,7 +821,7 @@ footer strong {
 
 </section>
 
-<!-- PROFESSIONAL SOCIAL MEDIA -->
+<!-- SOCIAL MEDIA -->
 <section id="contact" class="social-section">
 
   <h2 class="section-heading">LET'S CONNECT</h2>
@@ -813,11 +842,8 @@ footer strong {
       aria-label="Follow DJ BASHIRUG on TikTok">
 
       <div class="social-icon">♪</div>
-
       <strong>TIKTOK</strong>
-
       <span class="social-handle">@www.dj.bashirug</span>
-
       <small>FOLLOW FOR MORE DJ CONTENT</small>
 
     </a>
@@ -831,11 +857,8 @@ footer strong {
       aria-label="Subscribe to DJ BASHIRUG on YouTube">
 
       <div class="social-icon">▶</div>
-
       <strong>YOUTUBE</strong>
-
       <span class="social-handle">@hectorhabib</span>
-
       <small>WATCH AND SUBSCRIBE</small>
 
     </a>
@@ -849,12 +872,24 @@ footer strong {
       aria-label="Contact DJ BASHIRUG on WhatsApp">
 
       <div class="social-icon">☎</div>
-
       <strong>WHATSAPP</strong>
-
       <span class="social-handle">+256 769 484 802</span>
-
       <small>CHAT AND MAKE BOOKINGS</small>
+
+    </a>
+
+    <!-- INSTAGRAM -->
+    <a
+      href="https://www.instagram.com/dj_bashir256?hvrq=c3d2enp1bHgxdjN5"
+      class="social-card instagram-card"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Follow DJ BASHIRUG on Instagram">
+
+      <div class="social-icon">◎</div>
+      <strong>INSTAGRAM</strong>
+      <span class="social-handle">@dj_bashir256</span>
+      <small>FOLLOW ME ON INSTAGRAM</small>
 
     </a>
 
@@ -884,10 +919,17 @@ footer strong {
 function sendBooking(event) {
   event.preventDefault();
 
-  const name = document.getElementById("name").value.trim();
-  const eventType = document.getElementById("event").value.trim();
-  const date = document.getElementById("date").value;
-  const message = document.getElementById("message").value.trim();
+  const name =
+    document.getElementById("name").value.trim();
+
+  const eventType =
+    document.getElementById("event").value.trim();
+
+  const date =
+    document.getElementById("date").value;
+
+  const message =
+    document.getElementById("message").value.trim();
 
   if (!name || !eventType || !date) {
     alert("Please fill in your name, event type and date.");
