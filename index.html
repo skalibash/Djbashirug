@@ -4,6 +4,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>DJ BASHIRUG | The Mix Grandmaster</title>
 
 <style>
@@ -24,6 +25,7 @@ body {
   line-height: 1.6;
 }
 
+/* HEADER */
 header {
   background: #020611;
   padding: 22px 12px;
@@ -44,6 +46,7 @@ header p {
   font-size: 13px;
 }
 
+/* NAVIGATION */
 nav {
   background: #07152b;
   padding: 14px 8px;
@@ -62,6 +65,7 @@ nav a:hover {
   color: #00aaff;
 }
 
+/* MOVING BANNER */
 .banner {
   overflow: hidden;
   white-space: nowrap;
@@ -81,6 +85,7 @@ nav a:hover {
   to { transform: translateX(-100%); }
 }
 
+/* HERO */
 .hero {
   text-align: center;
   padding: 45px 15px;
@@ -113,6 +118,7 @@ nav a:hover {
   color: #c8dcff;
 }
 
+/* SECTIONS */
 section {
   padding: 40px 18px;
   text-align: center;
@@ -124,6 +130,7 @@ section h2 {
   text-shadow: 0 0 10px #005eff;
 }
 
+/* PANELS */
 .panel {
   max-width: 750px;
   margin: 15px auto;
@@ -134,11 +141,31 @@ section h2 {
   box-shadow: 0 0 15px #003b80;
 }
 
+/* MUSIC PLAYER */
 audio {
+  display: block;
   width: 100%;
-  margin-top: 15px;
+  margin-top: 20px;
 }
 
+.download-btn {
+  display: inline-block;
+  padding: 15px 25px;
+  margin-top: 18px;
+  border-radius: 10px;
+  background: #00cc66;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.download-btn:hover {
+  background: #00ee77;
+  transform: scale(1.05);
+}
+
+/* BUTTONS */
 .btn {
   display: inline-block;
   padding: 12px 22px;
@@ -154,6 +181,7 @@ audio {
   background: #00aaff;
 }
 
+/* SOCIAL BUTTONS */
 .connect-buttons {
   display: flex;
   justify-content: center;
@@ -192,6 +220,7 @@ audio {
   background: #087f42;
 }
 
+/* BOOKING FORM */
 input, textarea {
   width: 100%;
   padding: 13px;
@@ -212,6 +241,7 @@ button {
   cursor: pointer;
 }
 
+/* FOOTER */
 footer {
   background: #020611;
   padding: 22px 10px;
@@ -220,6 +250,7 @@ footer {
   color: #a9cfff;
 }
 
+/* MOBILE RESPONSIVE */
 @media (max-width: 600px) {
   header h1 {
     font-size: 25px;
@@ -237,21 +268,26 @@ footer {
     width: 90%;
   }
 }
-  
 </style>
 </head>
 
 <body>
 
+<!-- HEADER -->
 <header>
   <h1>DJ BASHIRUG</h1>
   <p>THE MIX GRANDMASTER</p>
 </header>
 
+<!-- MOVING BANNER -->
 <div class="banner">
-  <span>WELCOME TO THE OFFICIAL DJ BASHIRUG WEBSITE • MUSIC • ENTERTAINMENT • GOOD VIBES •</span>
+  <span>
+    WELCOME TO THE OFFICIAL DJ BASHIRUG WEBSITE •
+    MUSIC • ENTERTAINMENT • GOOD VIBES •
+  </span>
 </div>
 
+<!-- NAVIGATION -->
 <nav>
   <a href="#home">HOME</a>
   <a href="#about">ABOUT</a>
@@ -260,117 +296,206 @@ footer {
   <a href="#contact">CONTACT</a>
 </nav>
 
+<!-- HOME -->
 <section class="hero" id="home">
-  <img src="dj-bashirug-profile-1.jpg" alt="DJ BASHIRUG">
+
+  <img src="dj-bashirug-profile-1.jpg"
+       alt="DJ BASHIRUG">
 
   <h2>DJ BASHIRUG</h2>
+
   <h3>THE MIX GRANDMASTER</h3>
+
   <p>Mix • Play • Enjoy</p>
+
   <p>Music Connects People...</p>
+
 </section>
 
+<!-- ABOUT -->
 <section id="about">
+
   <h2>ABOUT DJ BASHIRUG</h2>
+
   <div class="panel">
+
     <p>
       Welcome to the official website of DJ BASHIRUG.
       Your destination for nonstop mixes, great music,
       entertainment and unforgettable party vibes.
     </p>
+
   </div>
+
 </section>
 
+<!-- MIXTAPES -->
 <section id="mixes">
+
   <h2>DJ BASHIRUG MIXTAPES</h2>
 
   <div class="panel">
+
     <h3>MY LATEST NONSTOP MIX</h3>
+
     <p>Listen to the latest DJ BASHIRUG mix below.</p>
 
-    <audio controls>
-      <source src="mix.mp3" type="audio/mpeg">
+    <!-- CLOUDINARY MUSIC PLAYER -->
+    <audio controls preload="metadata">
+
+      <source
+        src="https://res.cloudinary.com/ptm1ejiq/video/upload/v1795093579/mix.mp3"
+        type="audio/mpeg">
+
       Your browser does not support audio.
+
     </audio>
-    <a href="https://res.cloudinary.com/ptm1ejiq/video/upload/v1795093579/mix.mp3"
-download="DJ-BASHIRUG-MIX.mp3"
-style="display:inline-block;background:#00cc66;color:white;padding:15px 25px;border-radius:10px;text-decoration:none;font-weight:bold;margin-top:15px;">
-⬇ DOWNLOAD MY MIX
-</a>
+
+    <!-- DOWNLOAD BUTTON -->
+    <a
+      href="https://res.cloudinary.com/ptm1ejiq/video/upload/v1795093579/mix.mp3"
+      download="DJ-BASHIRUG-MIX.mp3"
+      class="download-btn">
+
+      ⬇ DOWNLOAD MY MIX
+
+    </a>
+
   </div>
+
 </section>
 
+<!-- BOOKING -->
 <section id="booking">
+
   <h2>BOOK DJ BASHIRUG</h2>
 
   <div class="panel">
-    <p>For events, parties and entertainment, send a booking request.</p>
+
+    <p>
+      For events, parties and entertainment,
+      send a booking request.
+    </p>
 
     <form onsubmit="sendBooking(event)">
-      <input type="text" id="name" placeholder="Your Name" required>
 
-      <input type="text" id="event" placeholder="Type of Event" required>
+      <input
+        type="text"
+        id="name"
+        placeholder="Your Name"
+        required>
 
-      <input type="date" id="date" required>
+      <input
+        type="text"
+        id="event"
+        placeholder="Type of Event"
+        required>
 
-      <textarea id="message" placeholder="Your Message"></textarea>
+      <input
+        type="date"
+        id="date"
+        required>
+
+      <textarea
+        id="message"
+        placeholder="Your Message"></textarea>
 
       <button type="submit" class="btn">
         SEND BOOKING REQUEST
       </button>
+
     </form>
+
   </div>
+
 </section>
 
+<!-- CONTACT -->
 <section id="contact">
+
   <h2>CONNECT WITH DJ BASHIRUG</h2>
 
   <div class="connect-buttons">
 
-    <a href="https://www.tiktok.com/@www.dj.bashirug"
-       class="connect-btn tiktok" target="_blank">
-       ♪ FOLLOW ME ON TIKTOK
+    <a
+      href="https://www.tiktok.com/@www.dj.bashirug"
+      class="connect-btn tiktok"
+      target="_blank"
+      rel="noopener">
+
+      ♪ FOLLOW ME ON TIKTOK
+
     </a>
 
-    <a href="https://youtube.com/@hectorhabib"
-       class="connect-btn youtube" target="_blank">
-       ▶ SUBSCRIBE ON YOUTUBE
+    <a
+      href="https://youtube.com/@hectorhabib"
+      class="connect-btn youtube"
+      target="_blank"
+      rel="noopener">
+
+      ▶ SUBSCRIBE ON YOUTUBE
+
     </a>
 
-    <a href="https://wa.me/256769484802"
-       class="connect-btn whatsapp" target="_blank">
-       ☎ CONNECT ON WHATSAPP
+    <a
+      href="https://wa.me/256769484802"
+      class="connect-btn whatsapp"
+      target="_blank"
+      rel="noopener">
+
+      ☎ CONNECT ON WHATSAPP
+
     </a>
 
   </div>
+
 </section>
 
+<!-- FOOTER -->
 <footer>
+
   <p>© 2026 DJ BASHIRUG. All Rights Reserved.</p>
+
   <p>Music • Entertainment • Good Vibes</p>
+
   <p>Designed in Uganda 🇺🇬</p>
+
 </footer>
 
+<!-- BOOKING SCRIPT -->
 <script>
+
 function sendBooking(event) {
+
   event.preventDefault();
 
-  const name = document.getElementById("name").value;
-  const eventType = document.getElementById("event").value;
-  const date = document.getElementById("date").value;
-  const message = document.getElementById("message").value;
+  const name =
+    document.getElementById("name").value;
+
+  const eventType =
+    document.getElementById("event").value;
+
+  const date =
+    document.getElementById("date").value;
+
+  const message =
+    document.getElementById("message").value;
 
   const text =
-    "Hello DJ BASHIRUG! I want to make a booking.%0A" +
-    "Name: " + encodeURIComponent(name) + "%0A" +
-    "Event: " + encodeURIComponent(eventType) + "%0A" +
-    "Date: " + encodeURIComponent(date) + "%0A" +
-    "Message: " + encodeURIComponent(message);
+    "Hello DJ BASHIRUG! I want to make a booking.\n" +
+    "Name: " + name + "\n" +
+    "Event: " + eventType + "\n" +
+    "Date: " + date + "\n" +
+    "Message: " + message;
 
   window.open(
-    "https://wa.me/256769484802?text=" + text,
+    "https://wa.me/256769484802?text=" +
+    encodeURIComponent(text),
     "_blank"
   );
+
 }
+
 </script>
 
 </body>
